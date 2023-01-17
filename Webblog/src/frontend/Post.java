@@ -2,13 +2,12 @@ package frontend;
 import databaseInterface.*;
 public class Post {
     private String title;
-    private int postID;
+    private int postID = 0;
     private String text;
 
 
-    public Post (String title, int postID){
+    public Post (String title){
         this.title = title;
-        this.postID = postID;
     }
     public void postInfo () {
         System.out.println("TITEL: " + this.title + " PostID: " + this.postID);

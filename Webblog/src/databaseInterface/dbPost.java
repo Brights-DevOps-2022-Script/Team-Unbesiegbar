@@ -65,4 +65,10 @@ public class dbPost {
             System.out.println(e.getMessage());
         }
     }
+    public double getLastpostID(){
+        double maxPostID = "SELECT MAX(postID) FROM ";
+        try (Connection conn = this.connect();
+        Statement stmt  = conn.createStatement();
+        ResultSet rs    = stmt.executeQuery(sql))
+    
 }

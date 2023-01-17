@@ -13,7 +13,7 @@ public static void newpost () {
         String title = postIn.nextLine();
         int postID = postIn.nextInt();
         
-    Post post1 = new Post(title, postID);
+    Post post1 = new Post(title);
     post1.postInfo();
     }
     }
