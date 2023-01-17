@@ -1,1 +1,0 @@
-jdbc:sqlite:/home/fschultes/trainee_devops/Github/Team-Unbesiegbar/Webblog/src/database/pierixman.db
