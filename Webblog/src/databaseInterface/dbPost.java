@@ -18,14 +18,13 @@ public class dbPost {
 
 
     // insert zwei Mal vorhanden. 1. für Testzwecke. 2. kann Posttext empfangen
-    public void insert(int postId, String title, String author) {
-        String sql = "INSERT INTO books(postId, title, author) VALUES(?,?,?)";  //Pfad muss angepasst werden. Siehe Methode dbAdmin.createNewDatabase() 
+    public void insert(int postId, String title) {
+        String sql = "INSERT INTO books(postId, title) VALUES(?,?)";  //Pfad muss angepasst werden. Siehe Methode dbAdmin.createNewDatabase() 
 
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setDouble(1, postId);
             pstmt.setString(2, title);
-            pstmt.setString(3, author);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
