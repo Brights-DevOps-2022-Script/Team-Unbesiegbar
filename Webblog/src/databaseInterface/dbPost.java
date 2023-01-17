@@ -1,38 +1,10 @@
 package databaseInterface;
 import java.sql.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
+import Webblog.*;
 
 public class dbPost {
-    private String myUrl() {
-        String myStr = null;
-        try {
-            FileReader fr = new FileReader("Webblog\\src\\myVar.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String str = br.readLine();
-            myStr = str;
-            br.close();
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
-          return myStr;
-    }
-
-    private Connection connect() {
-        // SQLite connection string
-        String url = myUrl();    
-        Connection conn = null;
-        
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return conn;
-    }
-
+    JavaConf myConf = new JavaConf();
+    String myUrl = myConf.myUrl();
 
     // insert zwei Mal vorhanden. 1. für Testzwecke. 2. kann Posttext empfangen
     public void insert(int postId, String title) {
