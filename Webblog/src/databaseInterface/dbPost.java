@@ -19,8 +19,8 @@ public class dbPost {
     }
 
     // insert zwei Mal vorhanden. 1. für Testzwecke. 2. kann Posttext empfangen
-    public void insert(int postId, String title) {
-        String sql = "INSERT INTO postMVP(postId, title) VALUES(?,?)";  
+    public void insert(int postId, String title, String date) {
+        String sql = "INSERT INTO postMVP1(postId, title, date) VALUES(?,?,?)";  
         String url = myUrl; 
         // Class.forName("org.sqlite.JDBC");
 
@@ -28,6 +28,7 @@ public class dbPost {
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setDouble(1, postId);
             pstmt.setString(2, title);
+            pstmt.setString(3, date);
             pstmt.executeUpdate();
             if(conn != null){
                 conn.commit();
@@ -40,7 +41,7 @@ public class dbPost {
 
 
     public void showAllPosts(){
-        String sql = "SELECT postID, title FROM postMVP"; // Table anpassen nach Testphase
+        String sql = "SELECT postID, title, date FROM postMVP1"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -49,6 +50,7 @@ public class dbPost {
             // loop through the result set
             while (rs.next()) {
                 System.out.println(rs.getInt("postID") +  "\t" + 
+                                   rs.getString("title") + "\n" +
                                    rs.getString("title") + "\n");
             }
         } catch (SQLException e) {
@@ -56,7 +58,7 @@ public class dbPost {
         }
     }
     public double getLastpostID(){
-        String sql = "SELECT MAX (postID) as postID FROM postMVP;";
+        String sql = "SELECT MAX (postID) as postID FROM postMVP1;";
         double myDouble = 0;
 
         try (Connection conn = this.connect();

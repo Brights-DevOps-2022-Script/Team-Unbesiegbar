@@ -8,9 +8,6 @@ public class App {
     }
 
 public static void newpost () {
-
-
-
     
     try (Scanner postIn = new Scanner(System.in)) {
         System.out.println("Please Enter title");
