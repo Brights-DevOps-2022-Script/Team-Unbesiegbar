@@ -7,8 +7,8 @@ public class Post {
 
 
     public Post (String title, int postID){
-        title = this.title;
-        postID = this.postID;
+        this.title = title;
+        this.postID = postID;
     }
     public void postInfo () {
         System.out.println("TITEL: " + this.title + " PostID: " + this.postID);
