@@ -6,8 +6,9 @@ public class dbPost {
 
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db";    //Pfad muss angepasst werden. Siehe Methode dbAdmin.createNewDatabase()
+        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db";    
         Connection conn = null;
+        
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
@@ -19,29 +20,19 @@ public class dbPost {
 
     // insert zwei Mal vorhanden. 1. für Testzwecke. 2. kann Posttext empfangen
     public void insert(int postId, String title) {
-        String sql = "INSERT INTO books(postId, title) VALUES(?,?)";  //Pfad muss angepasst werden. Siehe Methode dbAdmin.createNewDatabase() 
+        String sql = "INSERT INTO postMVP(postId, title) VALUES(?,?)";  
+        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db"; //PFad in eigen conf datei legen. Datei kommt in git ignore
+        // Class.forName("org.sqlite.JDBC");
 
-        try (Connection conn = this.connect();
+        try (Connection conn = DriverManager.getConnection(url);
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setDouble(1, postId);
             pstmt.setString(2, title);
             pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-
-    public void insert(int postId, String title, String author, String text) {
-        String sql = "INSERT INTO books(postId, title, author, text) VALUES(?,?,?,?)";
-
-        try (Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setDouble(1, postId);
-            pstmt.setString(2, title);
-            pstmt.setString(3, author);
-            pstmt.setString(4, text);
-            pstmt.executeUpdate();
+            if(conn != null){
+                conn.commit();
+                conn.close();
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -49,7 +40,7 @@ public class dbPost {
 
 
     public void showAllPosts(){
-        String sql = "SELECT postID, title, author FROM books"; // Table anpassen nach Testphase
+        String sql = "SELECT postID, title FROM books"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -58,8 +49,7 @@ public class dbPost {
             // loop through the result set
             while (rs.next()) {
                 System.out.println(rs.getInt("postID") +  "\t" + 
-                                   rs.getString("title") + "\t" +
-                                   rs.getString("author") + "\n");
+                                   rs.getString("title") + "\n");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
