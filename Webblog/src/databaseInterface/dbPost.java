@@ -48,4 +48,22 @@ public class dbPost {
         }
     }
 
+
+    public void showAllPosts(){
+        String sql = "SELECT postID, title, author FROM books"; // Table anpassen nach Testphase
+        
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            
+            // loop through the result set
+            while (rs.next()) {
+                System.out.println(rs.getInt("postID") +  "\t" + 
+                                   rs.getString("title") + "\t" +
+                                   rs.getString("author") + "\n");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

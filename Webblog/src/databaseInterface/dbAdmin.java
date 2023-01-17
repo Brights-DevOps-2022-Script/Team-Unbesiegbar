@@ -25,8 +25,8 @@ public class dbAdmin {
             }
         }
 
-
-        //erstellt neue Tabelle. Hardcoded! :s
+        
+        //erstellt neue Tabelle. Hardcoded! :s 
         public static void createNewTable() {
 
             String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/SQLiteProj/SQLiteProj/src/test.db"; //Pfad muss angepasst werden. Siehe Methode createNewDatabase()
