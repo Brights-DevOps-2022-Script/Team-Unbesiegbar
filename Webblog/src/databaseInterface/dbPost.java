@@ -51,7 +51,7 @@ public class dbPost {
             while (rs.next()) {
                 System.out.println(rs.getInt("postID") +  "\t" + 
                                    rs.getString("title") + "\n" +
-                                   rs.getString("title") + "\n");
+                                   rs.getString("date") + "\n");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

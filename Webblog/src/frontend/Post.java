@@ -7,9 +7,6 @@ public class Post {
     private int postID;
     private String date;
 
-    public void getDate() {
-
-    }
     public Post (String title){
         this.title = title;
         dbPost rndDB = new dbPost();
