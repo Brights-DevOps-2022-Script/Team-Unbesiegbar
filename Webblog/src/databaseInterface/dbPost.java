@@ -1,6 +1,7 @@
 package databaseInterface;
 import java.sql.*;
-import Webblog.*;
+
+import ConfJava.JavaConf;
 
 public class dbPost {
     JavaConf myConf = new JavaConf();
