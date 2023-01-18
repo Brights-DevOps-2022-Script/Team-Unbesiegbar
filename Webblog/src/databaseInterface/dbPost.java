@@ -6,7 +6,7 @@ public class dbPost {
 
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/SQLiteProj/SQLiteProj/src/test.db";    //Pfad muss angepasst werden. Siehe Methode dbAdmin.createNewDatabase()
+        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db";    //Pfad muss angepasst werden. Siehe Methode dbAdmin.createNewDatabase()
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

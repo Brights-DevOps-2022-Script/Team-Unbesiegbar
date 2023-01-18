@@ -29,7 +29,7 @@ public class dbAdmin {
         //erstellt neue Tabelle. Hardcoded! :s 
         public static void createNewTable() {
 
-            String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/SQLiteProj/SQLiteProj/src/test.db"; //Pfad muss angepasst werden. Siehe Methode createNewDatabase()
+            String url = "jdbc:sqlite:jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db"; //Pfad muss angepasst werden. Siehe Methode createNewDatabase()
     
             String sql = "CREATE TABLE IF NOT EXISTS posts( " + "isbn integer PRIMARY KEY, " + "title TEXT NOT NULL, " 
             + "author TEXT NOT NULL, " + "category TEXT NOT NULL, " + "count integer" + ");";
