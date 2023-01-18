@@ -3,7 +3,6 @@ import databaseInterface.*;
 public class Post {
     private String title;
     private int postID;
-    private String text;
     
     public Post (String title){
         this.title = title;
