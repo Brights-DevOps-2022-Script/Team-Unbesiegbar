@@ -8,7 +8,7 @@ public class dbPost {
 
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/SQLiteProj/SQLiteProj/src/test.db";
+        String url = myUrl;
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
