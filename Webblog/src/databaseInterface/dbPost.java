@@ -6,7 +6,17 @@ public class dbPost {
     JavaConf myConf = new JavaConf();
     String myUrl = myConf.myUrl();
 
-    
+    private Connection connect() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/SQLiteProj/SQLiteProj/src/test.db";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
 
     // insert zwei Mal vorhanden. 1. für Testzwecke. 2. kann Posttext empfangen
     public void insert(int postId, String title) {
