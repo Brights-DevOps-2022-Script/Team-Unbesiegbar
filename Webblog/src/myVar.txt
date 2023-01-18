@@ -1,1 +1,1 @@
-dieser Text steht in einer txt datei, danke
+jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db

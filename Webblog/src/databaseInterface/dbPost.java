@@ -1,12 +1,28 @@
 package databaseInterface;
 import java.sql.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class dbPost {
+    private String myUrl() {
+        String myStr = null;
+        try {
+            FileReader fr = new FileReader("Webblog\\src\\myVar.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String str = br.readLine();
+            myStr = str;
+            br.close();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+          return myStr;
+    }
 
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db";    
+        String url = myUrl();    
         Connection conn = null;
         
         try {
@@ -21,7 +37,7 @@ public class dbPost {
     // insert zwei Mal vorhanden. 1. für Testzwecke. 2. kann Posttext empfangen
     public void insert(int postId, String title) {
         String sql = "INSERT INTO postMVP(postId, title) VALUES(?,?)";  
-        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db"; //PFad in eigen conf datei legen. Datei kommt in git ignore
+        String url = myUrl(); 
         // Class.forName("org.sqlite.JDBC");
 
         try (Connection conn = DriverManager.getConnection(url);
