@@ -21,7 +21,7 @@ public class dbPost {
     // insert zwei Mal vorhanden. 1. für Testzwecke. 2. kann Posttext empfangen
     public void insert(int postId, String title) {
         String sql = "INSERT INTO postMVP(postId, title) VALUES(?,?)";  
-        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db";
+        String url = "jdbc:sqlite:C:/Users/Mein PC/Documents/TeamUnbesiegbar/Team-Unbesiegbar/Webblog/src/database/pierixman.db"; //PFad in eigen conf datei legen. Datei kommt in git ignore
         // Class.forName("org.sqlite.JDBC");
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -30,7 +30,8 @@ public class dbPost {
             pstmt.setString(2, title);
             pstmt.executeUpdate();
             if(conn != null){
-
+                conn.commit();
+                conn.close();
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
