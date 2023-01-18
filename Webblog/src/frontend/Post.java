@@ -4,14 +4,16 @@ public class Post {
     private String title;
     private int postID;
     private String text;
-
-
-    public Post (String title, int postID){
+    private static int counter = 1;
+    
+    public Post (String title){
         this.title = title;
-        this.postID = postID;
+        postID += counter;
+        counter++;
     }
+
     public void postInfo () {
-        System.out.println("TITEL: " + this.title + " PostID: " + this.postID);
+        System.out.println("TITEL: " + this.title + " PostID: " + postID);
 
         dbPost myDbPost = new dbPost();
 
