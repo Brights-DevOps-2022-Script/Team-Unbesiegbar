@@ -56,7 +56,7 @@ public class dbPost {
 
 
     public void showAllPosts(){
-        String sql = "SELECT postID, title FROM books"; // Table anpassen nach Testphase
+        String sql = "SELECT postID, title FROM postMVP"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
