@@ -1,6 +1,5 @@
 package databaseInterface;
 import java.sql.*;
-
 import ConfJava.JavaConf;
 
 public class dbPost {
