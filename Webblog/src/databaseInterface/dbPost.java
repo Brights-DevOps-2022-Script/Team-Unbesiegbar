@@ -56,9 +56,16 @@ public class dbPost {
         }
     }
     public double getLastpostID(){
-        double maxPostID = "SELECT MAX(postID) FROM ";
+        String sql = "SELECT MAX (postID) as postID FROM postMVP;";
+        double myDouble = 0;
+
         try (Connection conn = this.connect();
         Statement stmt  = conn.createStatement();
-        ResultSet rs    = stmt.executeQuery(sql))
-    
+        ResultSet rs    = stmt.executeQuery(sql)){
+        myDouble = rs.getInt("postID");
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+        }
+    return myDouble;
+}
 }

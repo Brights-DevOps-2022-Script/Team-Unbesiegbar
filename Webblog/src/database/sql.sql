@@ -3,4 +3,4 @@
 -- INSERT INTO postMVP (postid, title) VALUES (1, "Start of Projekt Pierixman");
 -- SELECT * FROM postMVP;
 -- SELECT COUNT(postid) as count_post FROM postMVP;
-SELECT MAX (postid) FROM postMVP;
+-- SELECT MAX (postID) as postID FROM postMVP;
