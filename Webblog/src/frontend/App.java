@@ -68,8 +68,8 @@ public class App {
 
             //leave your Comment
             Scanner userIN = new Scanner(System.in);
-            String answer = userIN.nextLine();
-                if(answer == "y"){
+            char answer = userIN.next().charAt(0);
+                if(answer == 'y'){
                     
                     System.out.println("Please enter your comment: ");
                     Scanner comment = new Scanner(System.in);
@@ -81,7 +81,7 @@ public class App {
                     
                     comment.close();
                 }
-                else if(answer == "n"){
+                else if(answer == 'n'){
                     System.out.println("Habe einen schoenen Tag");
                 }
                 else{

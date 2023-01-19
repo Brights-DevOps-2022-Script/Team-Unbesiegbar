@@ -7,7 +7,7 @@
 
 -- CREATE TABLE IF NOT EXISTS pierixmanOne (postid integer PRIMARY KEY, title TEXT NOT NULL, author TEXT NOT NULL, contents TEXT NOT NULL, date TEXT NOT NULL);
 -- INSERT INTO pierixmanOne (postid, title, author, contents, date) VALUES (4, "Dicke Datteln am Strand", "Felix C. S.", "irgend ein TExt", "Datum" );
-SELECT * FROM pierixmanOne;
+SELECT * FROM commentTEST;
 -- DROP TABLE IF EXISTS pierifmanOne;
 
 -- DELETE FROM pierixmanOne WHERE postid = 1;
