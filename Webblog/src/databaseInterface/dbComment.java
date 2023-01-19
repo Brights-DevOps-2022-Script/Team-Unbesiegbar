@@ -8,7 +8,6 @@ public class dbComment {
     String myTable = "commentTEST";
 
     private Connection connect() {
-        // SQLite connection string
         String url = myUrl;
         Connection conn = null;
         try {
@@ -22,7 +21,6 @@ public class dbComment {
     public void insertComment(int commentID, String contents, String postid) {
         String sql = "INSERT INTO " + myTable + " (commentID, contents, postid) VALUES(?,?,?)";  
         String url = myUrl; 
-        // Class.forName("org.sqlite.JDBC");
 
         try (Connection conn = DriverManager.getConnection(url);
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {

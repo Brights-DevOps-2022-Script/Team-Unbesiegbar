@@ -8,7 +8,6 @@ public class dbPost {
     String myTable = "pierixmanOne";
 
     private Connection connect() {
-        // SQLite connection string
         String url = myUrl;
         Connection conn = null;
         try {
@@ -23,7 +22,6 @@ public class dbPost {
     public void insert(int postId, String title, String date) {
         String sql = "INSERT INTO " + myTable + " (postId, title, date) VALUES(?,?,?)";  
         String url = myUrl; 
-        // Class.forName("org.sqlite.JDBC");
 
         try (Connection conn = DriverManager.getConnection(url);
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
