@@ -60,6 +60,9 @@ public class App {
         int postID = idIN.nextInt();
         Post myPost = new Post(postID);
         myPost.displayPost();
+        System.out.println("Do yo wanna comment this post?");
+        //Show comments
+        //Leave your comment
         System.out.println("--------------------------------------------------");
         idIN.close();
     }
@@ -72,7 +75,6 @@ public class App {
     public static void deletepost(){
         System.out.println("Please enter the id of the post");
         Scanner idIN = new Scanner(System.in);
-        // String postID = idIN.nextLine();
         int postID = idIN.nextInt();
         Post delPost = new Post(postID);
         delPost.deletePost();
