@@ -49,12 +49,6 @@ public class Comment {
 
     }
 
-    public void displayAllComments() {
-        
-        dbComment myDbComment = new dbComment();
-        myDbComment.showComments(postID);
-    }
-
 
     public void displayComment(){
     
