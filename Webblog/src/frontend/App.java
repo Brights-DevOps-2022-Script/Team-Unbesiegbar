@@ -9,8 +9,7 @@ public class App {
     }
 
 public static void newpost () {
-    dbPost Posts = new dbPost();
-    Posts.showAllPosts();
+    
     
 
     Scanner userInput = new Scanner(System.in);
@@ -25,7 +24,12 @@ public static void newpost () {
         System.out.println("Please enter the title of your new Post");
         Scanner postIN = new Scanner(System.in);
         String title = postIN.nextLine();
-        Post post1 = new Post(title);
+        System.out.println("Enter your Name");
+        String author = postIN.nextLine();
+        System.out.println("Enter content of your post");
+        String contents = postIN.nextLine();
+
+        Post post1 = new Post(title, author, contents);
         post1.postInfo();
         postIN.close();
     }
