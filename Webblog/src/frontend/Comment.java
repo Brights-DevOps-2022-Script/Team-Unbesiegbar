@@ -54,7 +54,7 @@ public class Comment {
     
         myDbComment.showComments(postID);
     }
-
+    
     /*public void deleteComment(){
         String myString = Integer.toString(commentID);
         myDbComment.removeComment(myString);
