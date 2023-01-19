@@ -70,16 +70,21 @@ public class App {
             Scanner userIN = new Scanner(System.in);
             char answer = userIN.next().charAt(0);
                 if(answer == 'y'){
+
+                    System.out.println("Please enter your name: ");
+                    Scanner name = new Scanner(System.in);
+                    String yourName = name.nextLine();
                     
                     System.out.println("Please enter your comment: ");
                     Scanner comment = new Scanner(System.in);
                     String yourComment = comment.nextLine();
 
-                    Comment userComment = new Comment(yourComment, postID);
+                    Comment userComment = new Comment(yourComment, postID, yourName);
                     System.out.println("This is your comment: ");
                     userComment.CommentInfo();
                     
                     comment.close();
+                    name.close();
                 }
                 else if(answer == 'n'){
                     System.out.println("Habe einen schoenen Tag");

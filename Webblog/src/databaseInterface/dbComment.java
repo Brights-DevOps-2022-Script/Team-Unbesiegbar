@@ -5,7 +5,7 @@ import ConfJava.JavaConf;
 public class dbComment {
     JavaConf myConf = new JavaConf();
     String myUrl = myConf.myUrl();
-    String myTable = "commentTEST";
+    String myTable = "commentTest2";
 
     private Connection connect() {
         String url = myUrl;
@@ -18,15 +18,17 @@ public class dbComment {
         return conn;
     }
 
-    public void insertComment(int commentID, String contents, int postid) {
-        String sql = "INSERT INTO " + myTable + " (commentID, contents, postid) VALUES(?,?,?)";  
+    public void insertComment(int commentID, String contents,String author, String date, int postid) {
+        String sql = "INSERT INTO " + myTable + " (commentID, contents, author, date, postid) VALUES(?,?,?,?,?)";  
         String url = myUrl; 
 
         try (Connection conn = DriverManager.getConnection(url);
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setDouble(1, commentID);
             pstmt.setString(2, contents);
-            pstmt.setDouble(3, postid);
+            pstmt.setString(3, author);
+            pstmt.setString(4, date);
+            pstmt.setDouble(5, postid);
             pstmt.executeUpdate();
             if(conn != null){
                 conn.commit();
@@ -39,7 +41,7 @@ public class dbComment {
 
     public void showComments(int postid){
         String myID = Integer.toString(postid);
-        String sql = "SELECT commentID, contents FROM " + myTable + "WHERE  postid=" + myID + ";"; // Table anpassen nach Testphase
+        String sql = "SELECT commentID, contents, author, date FROM " + myTable + "WHERE  postid=" + myID + ";"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
