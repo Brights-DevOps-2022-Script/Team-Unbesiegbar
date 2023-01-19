@@ -35,12 +35,13 @@ public class Comment {
         this.commentID = commentID;
     }
 
-    public Comment (String contents){
+    public Comment (String contents, int postID){
+        this.postID = postID;
         this.contents = contents;
         this.commentID = countCommentID();
     }
 
-    public void CommentrInfo () {
+    public void CommentInfo () {
         System.out.println("CommentID: " + commentID + " AUTHOR: " + author + " CONTENTS " + contents + " DATE: " + date);  //schoen machen
 
         myDbComment.insertComment(commentID, contents, postID);
