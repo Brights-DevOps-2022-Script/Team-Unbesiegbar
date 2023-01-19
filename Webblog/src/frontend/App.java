@@ -18,8 +18,23 @@ public class App {
         }
 
         else if (choice == 2) {
+            showallposts();
             readpost();
         }
+
+        else if (choice == 3){
+            showallposts();
+        }
+
+        else if (choice == 4){
+            showallposts();
+            deletepost();
+        }
+
+        else {
+            System.out.println("Input not valid!");
+        }
+
     userInput.close();
     }
 
@@ -43,15 +58,24 @@ public class App {
         System.out.println("Please enter the id of the post");
         Scanner idIN = new Scanner(System.in);
         String postID = idIN.nextLine();
-        dbPost Post = new dbPost();
-        Post.showPost(postID);
+        Post myPost = new Post(postID);
+        myPost.displayPost();
         System.out.println("--------------------------------------------------");
         idIN.close();
     }
     
+    public static void showallposts(){
+        dbPost allposts = new dbPost();
+        allposts.showAllPosts();
+    }
+
+    public static void deletepost(){
+        System.out.println("Please enter the id of the post");
+        Scanner idIN = new Scanner(System.in);
+        String postID = idIN.nextLine();
+        Post delPost = new Post(postID);
+        delPost.deletePost();
+        System.out.println("--------------------------------------------------");
+        idIN.close();
+    }
 }
-
-
-
-
- 
