@@ -42,7 +42,7 @@ public class Comment {
     }
 
     public void CommentInfo () {
-        System.out.println("CommentID: " + commentID + " AUTHOR: " + author + " CONTENTS " + contents + " DATE: " + date);  //schoen machen
+        System.out.println("CommentID: " + commentID +" CONTENTS " + contents);  //schoen machen
 
         myDbComment.insertComment(commentID, contents, postID);
 
