@@ -10,6 +10,11 @@ public class Post {
     private String author;
     private dbPost myDbPost = new dbPost();
 
+    public String getPostDate(){
+        return date;
+
+    }
+
     public String getDate() {
         LocalDateTime rawDateObj = LocalDateTime.now();
         DateTimeFormatter shortDate = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
