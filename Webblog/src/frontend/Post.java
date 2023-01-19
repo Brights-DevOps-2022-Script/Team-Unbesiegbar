@@ -12,7 +12,10 @@ public class Post {
 
     public String getPostDate(){
         return date;
+    }
 
+    public int getPostID(){
+        return postID;
     }
 
     public String getDate() {
@@ -28,9 +31,8 @@ public class Post {
         return postID;
     }
 
-    public Post (String postid){
-        int myint = Integer.parseInt(postid);
-        this.postID = myint;
+    public Post (int postid){
+        this.postID = postid;
     }
 
     public Post (String title, String author, String contents){
@@ -62,7 +64,7 @@ public class Post {
     }
 
     public void deletePost(){
-        String myString = Integer.toBinaryString(postID);
+        String myString = Integer.toString(postID);
         myDbPost.removePost(myString);
         System.out.println("Post has been deleted!");
     }
