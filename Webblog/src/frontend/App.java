@@ -63,6 +63,13 @@ public class App {
         System.out.println("Do yo wanna comment this post?");
         //Show comments
         //Leave your comment
+
+
+        // Y/N? 
+        //If Y = logik
+        //Comment Class 
+        // 
+
         System.out.println("--------------------------------------------------");
         idIN.close();
     }
