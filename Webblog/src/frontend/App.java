@@ -60,6 +60,9 @@ public class App {
         String postID = idIN.nextLine();
         Post myPost = new Post(postID);
         myPost.displayPost();
+        System.out.println("Do yo wanna comment this post?");
+        //Show comments
+        //Leave your comment
         System.out.println("--------------------------------------------------");
         idIN.close();
     }
