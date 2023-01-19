@@ -16,15 +16,19 @@ public class Post {
         String date = rawDateObj.format(shortDate);
         return date;
     }
+    public int countPostID() {
+        dbPost rndDB = new dbPost();
+        postID = (int) rndDB.getLastpostID();
+        postID++;
+        return postID;
+    }
 
     public Post (String title, String author, String contents){
         this.title = title;
         this.author = author;
         this.contents = contents;
-        dbPost rndDB = new dbPost();
-        postID = (int) rndDB.getLastpostID();
-        postID++;
         this.date = getDate();
+        this.postID = countPostID();
     }
 
     public void postInfo () {
