@@ -6,6 +6,7 @@ public class Post {
     private String title;
     private int postID;
     private String date;
+    private dbPost myDbPost = new dbPost();
 
     public void getDate() {
 
@@ -22,11 +23,22 @@ public class Post {
     }
 
     public void postInfo () {
-        System.out.println("TITEL: " + this.title + " PostID: " + postID + " DATE: " + date);
-
-        dbPost myDbPost = new dbPost();
+        System.out.println("TITEL: " + this.title + " PostID: " + postID + " DATE: " + date);  //schoen machen
 
         myDbPost.insert(postID, title, date);
 
+    }
+
+    public void displayAllPosts() {
+        
+        dbPost myDbPost = new dbPost();
+        myDbPost.showAllPosts();
+    }
+
+
+    public void displayPost(){
+        String myString = null;
+        myString = Integer.toString(postID);
+        myDbPost.showPost(myString);
     }
 }
