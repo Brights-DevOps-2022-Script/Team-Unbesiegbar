@@ -18,6 +18,7 @@ public class App {
         }
 
         else if (choice == 2) {
+            showallposts();
             readpost();
         }
 
@@ -26,6 +27,7 @@ public class App {
         }
 
         else if (choice == 4){
+            showallposts();
             deletepost();
         }
 
@@ -71,8 +73,10 @@ public class App {
         System.out.println("Please enter the id of the post");
         Scanner idIN = new Scanner(System.in);
         String postID = idIN.nextLine();
-        dbPost Post = new dbPost();
-        Post.deletePost(postID);
+        Post delPost = new Post(postID);
+        delPost.deletePost();
+        System.out.println("--------------------------------------------------");
+        idIN.close();
     }
 }
 
