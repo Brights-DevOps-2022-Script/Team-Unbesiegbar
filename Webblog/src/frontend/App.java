@@ -4,23 +4,27 @@ import databaseInterface.dbPost;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        newpost();
-
-    }
-
-public static void newpost () {
-    
-    
-
-    Scanner userInput = new Scanner(System.in);
-
     System.out.println("What do you want to do? Please select: ");
     System.out.println("1. Create a new post");
     System.out.println("2. Read a post");
-    
-    int choice = userInput.nextInt();
+    System.out.println("3. Show all posts");
+    System.out.println("4. Delete a post");
 
-    if (choice == 1) {
+    Scanner userInput = new Scanner(System.in);
+    int choice = userInput.nextInt();
+    
+        if (choice == 1) {
+            newpost();
+        }
+
+        else if (choice == 2) {
+            readpost();
+        }
+    userInput.close();
+    }
+
+    public static void newpost(){
+    
         System.out.println("Please enter the title of your new Post");
         Scanner postIN = new Scanner(System.in);
         String title = postIN.nextLine();
@@ -32,9 +36,10 @@ public static void newpost () {
         Post post1 = new Post(title, author, contents);
         post1.postInfo();
         postIN.close();
+
     }
 
-    else if (choice == 2) {
+    public static void readpost(){
         System.out.println("Please enter the id of the post");
         Scanner idIN = new Scanner(System.in);
         String postID = idIN.nextLine();
@@ -44,13 +49,8 @@ public static void newpost () {
         idIN.close();
     }
     
+}
 
-    else{
-        System.out.println("Error!");
-    }
-    userInput.close();
-}
-}
 
 
 
