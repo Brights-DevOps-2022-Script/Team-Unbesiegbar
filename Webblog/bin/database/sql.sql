@@ -5,4 +5,4 @@
 -- SELECT COUNT(postid) as count_post FROM postMVP;
 -- SELECT MAX (postid) FROM postMVP;
 
-CREATE TABLE commentTEST(commentID integer NOT NULL, contents TEXT NOT NULL, postid integer, PRIMARY KEY(commentID), FOREIGN KEY (postid) REFERENCES pierixmanOne(postid));
+-- CREATE TABLE commentTEST(commentID integer NOT NULL, contents TEXT NOT NULL, postid integer, PRIMARY KEY(commentID), FOREIGN KEY (postid) REFERENCES pierixmanOne(postid));
