@@ -18,7 +18,7 @@ public class dbComment {
         return conn;
     }
 
-    public void insertComment(int commentID, String contents, String postid) {
+    public void insertComment(int commentID, String contents, int postid) {
         String sql = "INSERT INTO " + myTable + " (commentID, contents, postid) VALUES(?,?,?)";  
         String url = myUrl; 
 
@@ -26,7 +26,7 @@ public class dbComment {
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setDouble(1, commentID);
             pstmt.setString(2, contents);
-            pstmt.setString(3, postid);
+            pstmt.setDouble(3, postid);
             pstmt.executeUpdate();
             if(conn != null){
                 conn.commit();
@@ -37,8 +37,9 @@ public class dbComment {
         }
     }
 
-    public void showComments(){
-        String sql = "SELECT commentID, contents FROM " + myTable; // Table anpassen nach Testphase
+    public void showComments(int postid){
+        String myID = Integer.toString(postid);
+        String sql = "SELECT commentID, contents FROM " + myTable + "WHERE  postid=" + myID; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
