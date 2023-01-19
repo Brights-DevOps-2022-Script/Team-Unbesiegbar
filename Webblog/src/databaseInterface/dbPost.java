@@ -83,7 +83,7 @@ public class dbPost {
     }
 
     public void showPost(String postID){
-        String sql = "SELECT postID, title, author, contents, date FROM " + myTable + "WHERE postid=" + postID; // Table anpassen nach Testphase
+        String sql = "SELECT postID, title, author, contents, date FROM " + myTable + " WHERE postid = " + postID; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
