@@ -74,8 +74,7 @@ public class dbPost {
             while (rs.next()) {
                 System.out.println("Post ID: " + rs.getInt("postID") +  "\n" + 
                                    "Title: " + rs.getString("title") + "\n" +
-                                   "Author: " + rs.getString("author") + "\n" +
-                                   "------------------------------------");
+                                   "Author: " + rs.getString("author") + "\n" );
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -95,8 +94,7 @@ public class dbPost {
                                    "Title: " + rs.getString("title") + "\n" +
                                    "Author: " + rs.getString("author") + "\n" +
                                    "Contents: " + rs.getString("contents") + "\n" +
-                                   "Date: " + rs.getString("date") + "\n" +
-                                   "-----------------------");
+                                   "Date: " + rs.getString("date") + "\n");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -116,5 +114,18 @@ public class dbPost {
         System.out.println(e.getMessage());
         }
     return myDouble;
-}
+    }
+
+    public void removePost(String postID){
+        String sql = "DELETE FROM " + myTable+ " WHERE postid = " + postID;
+        String url = myUrl; 
+
+
+        try (Connection conn = DriverManager.getConnection(url);
+                PreparedStatement pstmt = conn.prepareStatement(sql)){
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+    }
 }
