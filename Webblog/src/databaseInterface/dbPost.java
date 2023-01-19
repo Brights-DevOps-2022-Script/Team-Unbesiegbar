@@ -105,7 +105,7 @@ public class dbPost {
 
     
     public double getLastpostID(){
-        String sql = "SELECT MAX (postID) as postID FROM postMVP1;";
+        String sql = "SELECT MAX (postID) as postID FROM " + myTable +";";
         double myDouble = 0;
 
         try (Connection conn = this.connect();
