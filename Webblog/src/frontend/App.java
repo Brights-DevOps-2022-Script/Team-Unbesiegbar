@@ -43,8 +43,8 @@ public class App {
         System.out.println("Please enter the id of the post");
         Scanner idIN = new Scanner(System.in);
         String postID = idIN.nextLine();
-        dbPost Post = new dbPost();
-        Post.showPost(postID);
+        Post myPost = new Post(postID);
+        myPost.displayPost();
         System.out.println("--------------------------------------------------");
         idIN.close();
     }
