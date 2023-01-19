@@ -6,6 +6,8 @@ public class Post {
     private String title;
     private int postID;
     private String date;
+    private String contents;
+    private String author;
     private dbPost myDbPost = new dbPost();
 
     public String getDate() {
@@ -15,19 +17,20 @@ public class Post {
         return date;
     }
 
-    public Post (String title){
+    public Post (String title, String author, String contents){
         this.title = title;
+        this.author = author;
+        this.contents = contents;
         dbPost rndDB = new dbPost();
         postID = (int) rndDB.getLastpostID();
         postID++;
-        
         this.date = getDate();
     }
 
     public void postInfo () {
-        System.out.println("TITEL: " + this.title + " PostID: " + postID + " DATE: " + date);  //schoen machen
+        System.out.println("PostID: " + postID + " TITEL: " + this.title + " AUTHOR: " + author + " CONTENTS " + contents + " DATE: " + date);  //schoen machen
 
-        myDbPost.insert(postID, title, date);
+        myDbPost.insert(postID, title, author, contents, date);
 
     }
 
