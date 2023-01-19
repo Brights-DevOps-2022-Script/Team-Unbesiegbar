@@ -12,7 +12,10 @@ public class Post {
 
     public String getPostDate(){
         return date;
+    }
 
+    public int getPostID(){
+        return postID;
     }
 
     public String getDate() {
