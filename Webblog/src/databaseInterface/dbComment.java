@@ -37,4 +37,35 @@ public class dbComment {
         }
     }
 
+    public void showComments(){
+        String sql = "SELECT commentID, contents FROM " + myTable; // Table anpassen nach Testphase
+        
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            
+            // loop through the result set
+            while (rs.next()) {
+                System.out.println("Post ID: " + rs.getInt("postID") +  "\n" + 
+                                   "Title: " + rs.getString("title") + "\n" );
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public double getLastCommentID(){
+        String sql = "SELECT MAX (commentID) as commentID FROM " + myTable +";";
+        double myDouble = 0;
+
+        try (Connection conn = this.connect();
+        Statement stmt  = conn.createStatement();
+        ResultSet rs    = stmt.executeQuery(sql)){
+        myDouble = rs.getInt("commentID");
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
+        }
+    return myDouble;
+    }
+
 }
