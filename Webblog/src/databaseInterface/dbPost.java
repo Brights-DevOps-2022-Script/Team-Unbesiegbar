@@ -5,7 +5,7 @@ import ConfJava.JavaConf;
 public class dbPost {
     JavaConf myConf = new JavaConf();
     String myUrl = myConf.myUrl();
-    String myTable = "pierixman";
+    String myTable = "pierixmanOne";
 
     private Connection connect() {
         // SQLite connection string
