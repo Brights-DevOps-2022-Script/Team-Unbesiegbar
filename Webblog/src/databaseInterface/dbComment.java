@@ -39,7 +39,7 @@ public class dbComment {
 
     public void showComments(int postid){
         String myID = Integer.toString(postid);
-        String sql = "SELECT commentID, contents FROM " + myTable + "WHERE  postid=" + myID; // Table anpassen nach Testphase
+        String sql = "SELECT commentID, contents FROM " + myTable + "WHERE  postid=" + myID + ";"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -69,4 +69,17 @@ public class dbComment {
     return myDouble;
     }
 
+    public void removePost(int postID){
+        String myID = Integer.toString(postID);
+        String sql = "DELETE FROM " + myTable+ " WHERE postid = " + myID + ";";
+        String url = myUrl; 
+
+
+        try (Connection conn = DriverManager.getConnection(url);
+                PreparedStatement pstmt = conn.prepareStatement(sql)){
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+    }
 }
