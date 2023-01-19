@@ -35,10 +35,8 @@ public class Comment {
         this.commentID = commentID;
     }
 
-    public Comment (int commentID, String author, String contents){
-        this.author = author;
+    public Comment (String contents){
         this.contents = contents;
-        this.date = getDate();
         this.commentID = countCommentID();
     }
 
