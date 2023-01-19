@@ -23,22 +23,23 @@ public static void newpost () {
 
     if (choice == 1) {
         System.out.println("Please enter the title of your new Post");
-        String title = userInput.nextLine();
+        Scanner postIN = new Scanner(System.in);
+        String title = postIN.nextLine();
         Post post1 = new Post(title);
         post1.postInfo();
+        postIN.close();
     }
 
-    /*else if (choice == 2) {
-        for (int i = 1; i < dataStore.nextPostId; i++) {
-            Post post = dataStore.getPost(i);
-            System.out.println("ID: " + i);
-            System.out.println("Title: " + post.getTitle());
-            System.out.println("Text: " + post.getText());
-            System.out.println("Author: " + post.getAuthor());
-            System.out.println("Date: " + post.getFormattedDateTime());
-            System.out.println("--------------------------------------------------");
-        }
-    }*/
+    else if (choice == 2) {
+        System.out.println("Please enter the id of the post");
+        Scanner idIN = new Scanner(System.in);
+        String postID = idIN.nextLine();
+        dbPost Post = new dbPost();
+        Post.showPost(postID);
+        System.out.println("--------------------------------------------------");
+        idIN.close();
+    }
+    
 
     else{
         System.out.println("Error!");
