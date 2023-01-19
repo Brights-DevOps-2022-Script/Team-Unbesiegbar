@@ -1,4 +1,5 @@
 package frontend;
+import java.net.Socket;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import databaseInterface.*;
@@ -45,5 +46,11 @@ public class Post {
         String myString = null;
         myString = Integer.toString(postID);
         myDbPost.showPost(myString);
+    }
+
+    public void deletePost(){
+        String myString = Integer.toBinaryString(postID);
+        myDbPost.removePost(myString);
+        System.out.println("Post has been deleted!");
     }
 }
