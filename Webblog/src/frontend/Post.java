@@ -28,6 +28,11 @@ public class Post {
         return postID;
     }
 
+    public Post (String postid){
+        int myint = Integer.parseInt(postid);
+        this.postID = myint;
+    }
+
     public Post (String title, String author, String contents){
         this.title = title;
         this.author = author;
