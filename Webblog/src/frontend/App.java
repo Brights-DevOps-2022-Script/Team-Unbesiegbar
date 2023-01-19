@@ -1,6 +1,7 @@
 package frontend;
 import java.util.Scanner;
 import databaseInterface.dbPost;
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -60,15 +61,34 @@ public class App {
         int postID = idIN.nextInt();
         Post myPost = new Post(postID);
         myPost.displayPost();
-        System.out.println("Do yo wanna comment this post?");
-        //Show comments
-        //Leave your comment
+        System.out.println("Do yo wanna comment this post? y/n");
+        //Show all comments
+        /*Comment Comments = new Comment(PostID);
+        Comments.displayAllComments();*/
 
+            //leave your Comment
+            Scanner userIN = new Scanner(System.in);
+            String answer = userIN.nextLine();
+                if(answer == "y"){
+                    
+                    System.out.println("Please enter your comment: ");
+                    Scanner comment = new Scanner(System.in);
+                    String yourComment = comment.nextLine();
 
-        // Y/N? 
-        //If Y = logik
-        //Comment Class 
-        // 
+                    Comment userComment = new Comment(yourComment, postID);
+                    System.out.println("This is your comment: ");
+                    userComment.CommentInfo();
+                    
+                    comment.close();
+                }
+                else if(answer == "n"){
+                    System.out.println("Habe einen schoenen Tag");
+                }
+                else{
+                    System.out.println("Input not valid");
+                }
+            userIN.close();
+            
 
         System.out.println("--------------------------------------------------");
         idIN.close();
