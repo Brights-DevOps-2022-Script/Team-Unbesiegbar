@@ -8,15 +8,20 @@ public class Post {
     private String date;
     private dbPost myDbPost = new dbPost();
 
+    public String getDate() {
+        LocalDateTime rawDateObj = LocalDateTime.now();
+        DateTimeFormatter shortDate = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String date = rawDateObj.format(shortDate);
+        return date;
+    }
+
     public Post (String title){
         this.title = title;
         dbPost rndDB = new dbPost();
         postID = (int) rndDB.getLastpostID();
         postID++;
-        LocalDateTime rawDateObj = LocalDateTime.now();
-        DateTimeFormatter shortDate = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        String date = rawDateObj.format(shortDate);
-        this.date = date;
+        
+        this.date = getDate();
     }
 
     public void postInfo () {
