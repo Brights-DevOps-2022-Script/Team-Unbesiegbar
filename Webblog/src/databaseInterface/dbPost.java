@@ -73,6 +73,11 @@ public class dbPost {
                 System.out.println("*** Post ID: " + rs.getInt("postID") +  "\n" + 
                                    "*** Title:   " + rs.getString("title") + "\n" +
                                    "*** Author:  " + rs.getString("author") + "\n" );
+                                   try {
+                                    Thread.sleep(250);
+                                } catch(InterruptedException e) {
+                                    System.out.println("got interrupted!");
+                                }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
