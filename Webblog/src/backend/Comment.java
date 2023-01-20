@@ -31,8 +31,8 @@ public class Comment {
         return commentID;
     }
 
-    public Comment (int commentID){
-        this.commentID = commentID;
+    public Comment (int postID){
+        this.postID = postID;
     }
 
     public Comment (String contents, int postID, String author){
