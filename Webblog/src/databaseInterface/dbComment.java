@@ -49,8 +49,8 @@ public class dbComment {
             
             // loop through the result set
             while (rs.next()) {
-                System.out.println("Post ID: " + rs.getInt("postID") +  "\n" + 
-                                   "Title: " + rs.getString("title") + "\n" );
+                System.out.println("*** Post ID: " + rs.getInt("postID") +  "\n" + 
+                                   "*** Title:   " + rs.getString("title") + "\n" );
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
