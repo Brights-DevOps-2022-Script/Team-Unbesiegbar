@@ -40,7 +40,7 @@ public class dbComment {
     }
 
     public void showComments(String postid){
-        String sql = "SELECT commentID, contents, author, date, postid FROM " + myTable + "WHERE  postid=" + postid + ";"; // Table anpassen nach Testphase
+        String sql = "SELECT commentID, contents, author, date, postid FROM " + myTable + " WHERE  postid = " + postid + ";"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
