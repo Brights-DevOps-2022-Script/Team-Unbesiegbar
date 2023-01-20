@@ -69,12 +69,14 @@ public class App {
         int postID = idIN.nextInt();
         Post myPost = new Post(postID);
         myPost.displayPost();
-        System.out.println("Do yo wanna comment this post? y/n");
+        
         //Show all comments
         Comment Comments = new Comment(postID);
         Comments.displayComment();
 
-            //leave your Comment
+        //leave your Comment
+        System.out.println("Do yo wanna comment this post? y/n");
+            
             Scanner userIN = new Scanner(System.in);
             char answer = userIN.next().charAt(0);
                 if(answer == 'y'){
