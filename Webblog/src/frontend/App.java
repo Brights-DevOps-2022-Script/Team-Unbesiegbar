@@ -71,8 +71,8 @@ public class App {
         myPost.displayPost();
         System.out.println("Do yo wanna comment this post? y/n");
         //Show all comments
-        /*Comment Comments = new Comment(PostID);
-        Comments.displayAllComments();*/
+        Comment Comments = new Comment(postID);
+        Comments.displayComment();
 
             //leave your Comment
             Scanner userIN = new Scanner(System.in);
