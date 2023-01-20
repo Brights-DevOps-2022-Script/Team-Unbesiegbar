@@ -39,8 +39,7 @@ public class dbComment {
         }
     }
 
-    public void showComments(int postid){
-        String myID = Integer.toString(postid);
+    public void showComments(String postid){
         String sql = "SELECT commentID, contents, author, date, postid FROM " + myTable + "WHERE  postid=" + myID + ";"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
