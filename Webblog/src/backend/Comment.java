@@ -31,8 +31,8 @@ public class Comment {
         return commentID;
     }
 
-    public Comment (int commentID){
-        this.commentID = commentID;
+    public Comment (int postID){
+        this.postID = postID;
     }
 
     public Comment (String contents, int postID, String author){
@@ -56,9 +56,8 @@ public class Comment {
         myDbComment.showComments(postID);
     }
     
-    /*public void deleteComment(){
-        String myString = Integer.toString(commentID);
-        myDbComment.removeComment(myString);
+    public void deleteComment(){
+        myDbComment.removeComment(commentID);
         System.out.println("Comment has been deleted!");
-    }*/
+    }
 }

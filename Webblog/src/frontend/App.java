@@ -8,40 +8,45 @@ import databaseInterface.dbPost;
 public class App {
     public static void main(String[] args) throws Exception {
 
-    System.out.println("What do you want to do? Please select: ");
-    System.out.println("1. Create a new post");
-    System.out.println("2. Read a post");
-    System.out.println("3. Show all posts");
-    System.out.println("4. Delete a post");
-
     Scanner userInput = new Scanner(System.in);
-    int choice = userInput.nextInt();
+
+    boolean validInput = true;
     
-        if (choice == 1) {
-            newpost();
-        }
+    do{
+        System.out.println("What do you want to do? Please select: ");
+        System.out.println("1. Create a new post");
+        System.out.println("2. Read a post");
+        System.out.println("3. Show all posts");
+        System.out.println("4. Delete a post");
 
-        else if (choice == 2) {
-            showallposts();
-            readpost();
-        }
+        int choice = userInput.nextInt();
+     
+            if (choice == 1) {
+                newpost();
+            }
 
-        else if (choice == 3){
-            showallposts();
-        }
+            else if (choice == 2) {
+                showallposts();
+                readpost();
+            }
 
-        else if (choice == 4){
-            showallposts();
-            deletepost();
-        }
+            else if (choice == 3){
+                showallposts();
+            }
 
-        else {
-            System.out.println("Input not valid!");
-        }
+            else if (choice == 4){
+                showallposts();
+                deletepost();
+            }
 
+            else {
+                System.out.println("Input not valid!");
+            }
+    }
+    while(validInput);
     userInput.close();
     }
-
+    
     public static void newpost(){
     
         System.out.println("Please enter the title of your new Post");

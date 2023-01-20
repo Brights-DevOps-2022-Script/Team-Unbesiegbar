@@ -41,7 +41,7 @@ public class dbComment {
 
     public void showComments(int postid){
         String myID = Integer.toString(postid);
-        String sql = "SELECT commentID, contents, author, date FROM " + myTable + "WHERE  postid=" + myID + ";"; // Table anpassen nach Testphase
+        String sql = "SELECT commentID, contents, author, date, postid FROM " + myTable + "WHERE  postid=" + myID + ";"; // Table anpassen nach Testphase
         
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -49,8 +49,10 @@ public class dbComment {
             
             // loop through the result set
             while (rs.next()) {
-                System.out.println("*** Post ID: " + rs.getInt("postID") +  "\n" + 
-                                   "*** Title:   " + rs.getString("title") + "\n" );
+                System.out.println("*** CommentID: " + rs.getInt("commentID") +  "\n" + 
+                                   "*** Contents:   " + rs.getString("contents") + "\n" +
+                                   "*** Author: " + rs.getString("author") + "\n" +
+                                   "*** Date; " + rs.getString("date") + "\n");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -71,8 +73,8 @@ public class dbComment {
     return myDouble;
     }
 
-    public void removePost(int postID){
-        String myID = Integer.toString(postID);
+    public void removeComment(int commentID){
+        String myID = Integer.toString(commentID);
         String sql = "DELETE FROM " + myTable+ " WHERE postid = " + myID + ";";
         String url = myUrl; 
 
