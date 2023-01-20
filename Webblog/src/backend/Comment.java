@@ -56,9 +56,8 @@ public class Comment {
         myDbComment.showComments(postID);
     }
     
-    /*public void deleteComment(){
-        String myString = Integer.toString(commentID);
-        myDbComment.removeComment(myString);
+    public void deleteComment(){
+        myDbComment.removeComment(commentID);
         System.out.println("Comment has been deleted!");
-    }*/
+    }
 }
