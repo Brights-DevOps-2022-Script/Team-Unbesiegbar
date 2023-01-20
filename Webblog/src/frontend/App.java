@@ -6,6 +6,8 @@ import backend.Post;
 import databaseInterface.dbPost;
 
 public class App {
+
+    
     public static void main(String[] args) throws Exception {
 
     Scanner userInput = new Scanner(System.in);
@@ -21,7 +23,32 @@ public class App {
 
         int choice = userInput.nextInt();
      
-            if (choice == 1) {
+        switch(choice){
+            case 1: 
+                newpost();
+                break;
+
+            case 2:
+                showallposts();
+                readpost();
+                break;
+
+            case 3:
+                showallposts();
+                break;
+
+            case 4:
+                showallposts();
+                deletepost();
+                break;
+
+            default:
+                System.out.println("Input not valid!");
+                break;
+        }    
+        
+        
+            /*if (choice == 1) {
                 newpost();
             }
 
@@ -41,10 +68,9 @@ public class App {
 
             else {
                 System.out.println("Input not valid!");
-            }
+            }*/
     }
     while(validInput);
-    userInput.close();
     }
     
     public static void newpost(){
@@ -59,7 +85,7 @@ public class App {
 
         Post post1 = new Post(title, author, contents);
         post1.postInfo();
-        postIN.close();
+        
 
     }
 
@@ -93,8 +119,6 @@ public class App {
                     System.out.println("This is your comment: ");
                     userComment.CommentInfo();
                     
-                    comment.close();
-                    name.close();
                 }
                 else if(answer == 'n'){
                     System.out.println("Habe einen schoenen Tag");
@@ -102,11 +126,11 @@ public class App {
                 else{
                     System.out.println("Input not valid");
                 }
-            userIN.close();
+            
             
 
         System.out.println("--------------------------------------------------");
-        idIN.close();
+    
     }
     
     public static void showallposts(){
@@ -121,6 +145,6 @@ public class App {
         Post delPost = new Post(postID);
         delPost.deletePost();
         System.out.println("--------------------------------------------------");
-        idIN.close();
+       
     }
 }
