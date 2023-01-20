@@ -16,7 +16,9 @@ public class App {
 
     Scanner userInput = new Scanner(System.in);
     int choice = userInput.nextInt();
-    
+     
+    boolean validInput = true;
+    do{
         if (choice == 1) {
             newpost();
         }
@@ -40,6 +42,8 @@ public class App {
         }
 
     userInput.close();
+    }
+    while(!validInput);
     }
 
     public static void newpost(){
