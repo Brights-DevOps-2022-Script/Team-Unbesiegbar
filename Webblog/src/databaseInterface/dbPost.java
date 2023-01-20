@@ -70,9 +70,9 @@ public class dbPost {
             
             // loop through the result set
             while (rs.next()) {
-                System.out.println("Post ID: " + rs.getInt("postID") +  "\n" + 
-                                   "Title: " + rs.getString("title") + "\n" +
-                                   "Author: " + rs.getString("author") + "\n" );
+                System.out.println("*** Post ID: " + rs.getInt("postID") +  "\n" + 
+                                   "*** Title:   " + rs.getString("title") + "\n" +
+                                   "*** Author:  " + rs.getString("author") + "\n" );
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -88,11 +88,11 @@ public class dbPost {
             
             // loop through the result set
             while (rs.next()) {
-                System.out.println("Post ID: " + rs.getInt("postID") +  "\n" + 
-                                   "Title: " + rs.getString("title") + "\n" +
-                                   "Author: " + rs.getString("author") + "\n" +
-                                   "Contents: " + rs.getString("contents") + "\n" +
-                                   "Date: " + rs.getString("date") + "\n");
+                System.out.println("*** Post ID:  " + rs.getInt("postID") +  "\n" + 
+                                   "*** Title:    " + rs.getString("title") + "\n" +
+                                   "*** Author:   " + rs.getString("author") + "\n" +
+                                   "*** Contents: " + rs.getString("contents") + "\n" +
+                                   "*** Date:     " + rs.getString("date") + "\n");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
