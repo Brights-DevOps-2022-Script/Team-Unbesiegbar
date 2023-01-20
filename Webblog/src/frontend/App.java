@@ -1,5 +1,8 @@
 package frontend;
 import java.util.Scanner;
+
+import backend.Comment;
+import backend.Post;
 import databaseInterface.dbPost;
 
 public class App {

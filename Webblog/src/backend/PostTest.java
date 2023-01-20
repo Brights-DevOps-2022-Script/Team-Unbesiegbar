@@ -1,4 +1,4 @@
-package frontend;
+package backend;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
